@@ -1,0 +1,20 @@
+
+# https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster
+# an example than can be shows in details: https://kubernetes.io/docs/tutorials/hello-minikube/
+
+# Running cassandra in a cluster created in minikube 
+
+# requeriment:
+  
+  * minikube installation or running from katacoda online environment, prev¡iously mentioned 
+
+minikube start
+
+# script commands 
+# creating services
+kubectl create -f https://raw.githubusercontent.com/ldipotetjob/k8straining/master/connectingapps/service/networking/nginx-svc.yaml
+
+# exposing pod to the cluster (this is not the bes practices we are just making a test)
+kubectl create -f https://raw.githubusercontent.com/ldipotetjob/k8straining/master/connectingapps/service/networking/run-my-nginx.yaml
+
+kubectl get pods -l run=my-nginx -o yaml | grep podIP
