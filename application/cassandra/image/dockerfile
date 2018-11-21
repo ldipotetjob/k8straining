@@ -38,7 +38,7 @@ RUN apt-get update \
 RUN sed -ri 's/^(JVM_PATCH_VERSION)=.*/\1=25/' /etc/cassandra/cassandra-env.sh
 
 ENV CASSANDRA_CONFIG /etc/cassandra
-
+COPY ready-probe.sh /ready-probe.sh
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
