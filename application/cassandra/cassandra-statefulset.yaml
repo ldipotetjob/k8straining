@@ -18,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 1800
       containers:
       - name: cassandra
-        image: cassandra:3.7
+        image: ldipotetjob/sport-stats-daemons
         imagePullPolicy: Always
         ports:
         - containerPort: 7000
@@ -78,6 +78,8 @@ spec:
         volumeMounts:
         - name: cassandra-data
           mountPath: /var/lib/cassandra/data
+      imagePullSecrets:
+        - name: scadipregistrykey
   # These are converted to volume claims by the controller
   # and mounted at the paths mentioned above.
   # do not use these in production until ssd GCEPersistentDisk or other ssd pd
