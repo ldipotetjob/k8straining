@@ -18,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 1800
       containers:
       - name: cassandra
-        image: ldipotetjob/sport-stats-daemons
+        image: cassandra:3.7
         imagePullPolicy: Always
         ports:
         - containerPort: 7000
